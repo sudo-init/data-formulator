@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html, body {
+    @apply h-full;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  /* Data Formulator specific styles */
+  .df-split-pane {
+    @apply relative flex h-full;
+  }
+  
+  .df-split-pane > .Pane1 {
+    @apply overflow-hidden;
+  }
+  
+  .df-split-pane > .Pane2 {
+    @apply overflow-hidden;
+  }
+  
+  .df-split-pane > .Resizer {
+    @apply bg-gray-300 opacity-50 z-10 hover:opacity-100 cursor-col-resize;
+    width: 2px;
+  }
+  
+  /* AG Grid styling */
+  .ag-theme-alpine {
+    @apply text-sm;
+  }
+  
+  /* Vega chart container */
+  .vega-chart-container {
+    @apply w-full h-full flex items-center justify-center;
+  }
+  
+  /* Concept shelf styling */
+  .concept-shelf {
+    @apply bg-white border border-gray-200 rounded-lg p-4 shadow-sm;
+  }
+  
+  .concept-card {
+    @apply bg-blue-50 border border-blue-200 rounded-md p-2 m-1 cursor-move transition-colors hover:bg-blue-100;
+  }
+  
+  .concept-card.dragging {
+    @apply opacity-50;
+  }
+  
+  /* Data view styling */
+  .data-table-container {
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm;
+  }
+  
+  /* Visualization view styling */
+  .visualization-container {
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm p-4;
+  }
+  
+  /* Thread panel styling */
+  .thread-panel {
+    @apply bg-gray-50 border-l border-gray-200 overflow-y-auto;
+  }
+  
+  .thread-item {
+    @apply p-3 border-b border-gray-100 hover:bg-white cursor-pointer transition-colors;
+  }
+  
+  .thread-item.active {
+    @apply bg-blue-50 border-blue-200;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .min-h-screen-safe {
+    min-height: calc(100vh - 64px); /* Account for header */
+  }
+  
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(156 163 175) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(156 163 175);
+    border-radius: 3px;
+  }
+}
+
+/* MUI compatibility styles during migration */
+.MuiButton-root {
+  @apply transition-all duration-200;
+}
+
+.MuiPaper-root {
+  @apply shadow-sm;
+}
+
+.MuiDialog-paper {
+  @apply rounded-lg;
+}
+
+/* AG Grid theme overrides */
+.ag-theme-alpine .ag-header {
+  @apply bg-gray-50 border-b border-gray-200;
+}
+
+.ag-theme-alpine .ag-row:hover {
+  @apply bg-blue-50;
+}
+
+.ag-theme-alpine .ag-row.ag-row-selected {
+  @apply bg-blue-100;
+}
